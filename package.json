@@ -1,0 +1,25 @@
+{
+  "name": "a04-teresa7218",
+  "version": "1.0.0",
+  "description": "standup API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2022-fall/a04-teresa7218.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "@teresa7218",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/comp426-2022-fall/a04-teresa7218/issues"
+  },
+  "homepage": "https://github.com/comp426-2022-fall/a04-teresa7218#readme",
+  "dependencies": {
+    "minimist": "^1.2.7"
+  }
+}
