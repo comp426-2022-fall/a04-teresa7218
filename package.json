@@ -2,7 +2,7 @@
   "name": "a04-teresa7218",
   "version": "1.0.0",
   "description": "standup API using node.js and express.js and nodemon",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
