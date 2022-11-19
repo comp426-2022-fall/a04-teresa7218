@@ -1,4 +1,4 @@
-var roll = require('../lib/roll.js');
+var roll = require('./lib/roll.js');
 roll = roll();
 const express = require('express');
 const app = express();
