@@ -1,4 +1,5 @@
-import {roll} from "../lib/roll.js"; 
+const roll = require('../lib/roll.js');
+roll = roll();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -13,7 +14,7 @@ app.get('/app', (req, res)=>{
 
 app.get('/app/roll', (req, res) ={
 	var r = roll(6, 2, 1);
-	const obj = {sides: sides, dice: dice, rolls: rolls, results: r};
+	const obj = {sides: 6, dice: 2, rolls: 1, results: r};
 	res.json(obj);
 });
 app.listen(port, () => console.log(`Listening on port ${port}...`));
