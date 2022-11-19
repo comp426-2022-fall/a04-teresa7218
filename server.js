@@ -5,4 +5,8 @@ var port = normalizePort (process.env.PORT || '5000');
 
 app.get('/', (req, res)=>{
 	res.send("404 NOT FOUND")
-})
+});
+
+app.get('/app', (req, res)=>{
+	res.send("200 OK")
+});
