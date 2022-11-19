@@ -17,6 +17,6 @@ app.get('/app/roll', (req, res) =>{
 	const rolls = 1;
 	var r = roll(sides, dice, rolls);
 	const obj = {sides: sides, dice: dice, rolls: rolls, results: r};
-	res.send(JSON.stringify(obj));
+	res.json(obj);
 });
 app.listen(port, () => console.log('Listening on port 5000...'));
