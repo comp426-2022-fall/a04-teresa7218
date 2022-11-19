@@ -17,6 +17,6 @@ var obj = {sides: 6, dice: 2, rolls:1, results: r};
 const arstring = JSON.stringify(obj);
 
 app.get('/app/roll', (req, res) ={
-	res.json(arstring);
+	res.end(arstring);
 });
 app.listen(port, () => console.log(`Listening on port ${port}...`));
