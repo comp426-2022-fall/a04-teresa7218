@@ -11,7 +11,8 @@ app.get('/app', (req, res)=>{
 	res.send("200 OK")
 });
 
-
+app.use(express.json());
+app.use(express.urlencoded({extended:true});
 app.get('/app/roll', (req, res) =>{
 	var r = roll(6,2,1);
 	res.json({sides: 6, dice: 2, rolls: 1, results: r});
