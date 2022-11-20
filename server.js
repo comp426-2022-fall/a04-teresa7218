@@ -10,6 +10,7 @@ app.get('/', (req, res)=>{
 app.get('/app', (req, res)=>{
 	res.send("200 OK");
 	console.log("200 OK");
+	app.listen(port, () => console.log('200 OK'));
 });
 
 app.use(express.json());
