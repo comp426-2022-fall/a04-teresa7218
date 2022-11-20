@@ -1,5 +1,8 @@
 import express from 'express';
 import {roll} from './lib/roll.js';
+import parseArgs from 'minimist';
+
+var argv = parseArgs(process.argv);
 const app = express();
 const {SERVER_PORT: port = 5000} = process.env;
 app.use(express.urlencoded({extended: true}));
