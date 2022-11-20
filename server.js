@@ -14,7 +14,10 @@ app.get('/app', (req, res)=>{
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.get('/app/roll', (req, res) =>{
-	var r = roll(6,2,1);
-	res.json({sides: 6, dice: 2, rolls: 1, results: r});
+	var sides = 6 || req.body.sides;
+	var dice = 2 || req.body.dice;
+	var rolls = 1 || req.body.rolls
+	var r = roll(sides,dice,rolls);
+	res.json({sides: sides, dice: dice, rolls: rolls, results: r});
 });
 app.listen({port}, () => console.log(`Listening on port ${port}...`));
