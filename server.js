@@ -22,6 +22,7 @@ app.get('/app/roll/', (req, res, next) =>{
     	if (req.body.rolls) {
         	rolls = parseInt(req.body.rolls);
     	}
+	res.type('application/json');
 	var r = roll(sides,dice,rolls);
 	const obj = {sides: argv.sides, dice: argv.dice, rolls: argv.rolls, results: r};
 	res.status(200).send(obj);
