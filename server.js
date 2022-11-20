@@ -8,9 +8,7 @@ app.get('/', (req, res)=>{
 });
 
 app.get('/app', (req, res)=>{
-	res.send("200 OK");
-	console.log("200 OK");
-	app.listen(port, () => console.log('200 OK'));
+	return res.status(200).send("200 OK");
 });
 
 app.use(express.json());
@@ -23,3 +21,4 @@ app.get('/app/roll', (req, res) =>{
 	res.json({sides: sides, dice: dice, rolls: rolls, results: r});
 });
 
+app.listen(port, ()=> console.log(`listening on port ${port}!`));
