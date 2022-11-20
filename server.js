@@ -3,12 +3,13 @@ import {roll} from './lib/roll.js';
 const app = express();
 const {SERVER_PORT: port = 5000} = process.env;
 
-app.get('/', (req, res)=>{
-	res.send("404 NOT FOUND")
+app.get('*', (req, res)=>{
+	return res.status.send("404 NOT FOUND");
 });
 
-app.get('/app', (req, res)=>{
+app.get('/app/', (req, res)=>{
 	return res.status(200).send("200 OK");
+	console.log("200 OK");
 });
 
 app.use(express.json());
