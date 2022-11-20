@@ -23,7 +23,8 @@ app.get('/app/roll/', (req, res, next) =>{
         	rolls = parseInt(req.body.rolls);
     	}
 	var r = roll(sides,dice,rolls);
-	res.json({sides: sides, dice: dice, rolls: rolls, results: r});
+	const obj = {sides: argv.sides, dice: argv.dice, rolls: argv.rolls, results: r};
+	res.status(200).send(obj);
 });
 
 // Default route
