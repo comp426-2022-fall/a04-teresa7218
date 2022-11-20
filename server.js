@@ -9,10 +9,9 @@ const port = argv.port || 5000;
 app.use(express.urlencoded({extended: true}));
 
 
-app.get('/app', (req, res, next)=>{
+app.get('/app', (req, res)=>{
 	res.setHeader('Content-Type', 'application/json');
 	res.status(200).send("200 OK");
-	next();
 });
 
 app.get('/app/roll', (req, res, next) => {
@@ -21,9 +20,8 @@ app.get('/app/roll', (req, res, next) => {
 	var rolls = 1;
 	res.type('application/json');
 	var r = roll(sides,dice,rolls);
-	res.setHeader('Content-Type', 'application/json');
+	//res.setHeader('Content-Type', 'application/json');
 	res.status(200).send(r);
-	next();
 });
 app.post('/app/roll', (req, res, next) =>{
 	var sides = 6;
