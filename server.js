@@ -12,7 +12,7 @@ app.get('/app/', (req, res, next)=>{
 	next();
 });
 
-app.get('/app/roll/', (req, res, next) =>{
+app.post('/app/roll/', (req, res, next) =>{
 	var sides = 6;
 	var dice = 2 ;
 	var rolls = 1;
