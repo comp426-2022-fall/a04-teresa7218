@@ -12,9 +12,18 @@ app.get('/app/', (req, res, next)=>{
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.get('/app/roll/', (req, res, next) =>{
-	var sides = parseInt(req.body.sides)|| 6;
-	var dice = parseInt(req.body.dice)|| 2 ;
-	var rolls = parseInt(req.body.rolls)|| 1;
+	var sides = 6;
+	var dice = 2 ;
+	var rolls = 1;
+	if (req.body.sides) {
+        	sides = parseInt(req.body.sides);
+    	}
+    	if (req.body.dice) {
+        	dice = parseInt(req.body.dice);
+    	}
+    	if (req.body.rolls) {
+        	rolls = parseInt(req.body.rolls);
+    	}
 	var r = roll(sides,dice,rolls);
 	res.json({sides: sides, dice: dice, rolls: rolls, results: r});
 });
