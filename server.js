@@ -12,18 +12,18 @@ app.get('/app/', (req, res, next)=>{
 	next();
 });
 
-app.post('/app/roll/', (req, res, next) =>{
+app.get('/app/roll/', (req, res, next) =>{
 	var sides = 6;
 	var dice = 2 ;
 	var rolls = 1;
-	if (req.body.sides) {
-        	sides = parseInt(req.body.sides);
+	if (req.params.sides) {
+        	sides = parseInt(req.params.sides);
     	}
-    	if (req.body.dice) {
-        	dice = parseInt(req.body.dice);
+    	if (req.params.dice) {
+        	dice = parseInt(req.params.dice);
     	}
-    	if (req.body.rolls) {
-        	rolls = parseInt(req.body.rolls);
+    	if (req.params.rolls) {
+        	rolls = parseInt(req.params.rolls);
     	}
 	res.type('application/json');
 	var r = roll(sides,dice,rolls);
