@@ -4,7 +4,7 @@ import parseArgs from 'minimist';
 
 var argv = parseArgs(process.argv);
 const app = express();
-const {SERVER_PORT: port = 5000} = argv.port;
+const port = argv.port || 5000;
 app.use(express.urlencoded({extended: true}));
 
 app.get('/app', (req, res, next)=>{
