@@ -1,7 +1,7 @@
-const roll = require('./lib/roll.js');
-const express = require('express');
+import express from 'express';
+import {roll} from './lib/roll.js';
 const app = express();
-const port = process.env.PORT || 5000;
+const {SERVER_PORT: port = 5000} = process.env;
 
 app.get('/', (req, res)=>{
 	res.send("404 NOT FOUND")
@@ -18,4 +18,4 @@ const arstring = JSON.stringify(obj);
 app.get('/app/roll', (req, res) =>{
 	res.end(arstring);
 });
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+app.listen({port}, () => console.log(`Listening on port ${port}...`));
