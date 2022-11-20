@@ -1,6 +1,7 @@
 import express from 'express';
 import {roll} from './lib/roll.js';
 import parseArgs from 'minimist';
+import request from 'request';
 
 var argv = parseArgs(process.argv);
 const app = express();
