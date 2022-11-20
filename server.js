@@ -1,7 +1,7 @@
 import express from 'express';
 import {roll} from './lib/roll.js';
 import parseArgs from 'minimist';
-import request from 'request';
+
 
 var argv = parseArgs(process.argv);
 const app = express();
@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: true}));
 
 
 app.get('/app', (req, res, next)=>{
-	request.setHeader('Content-Type', 'application/json');
+	res.setHeader('Content-Type', 'application/json');
 	res.status(200).send("200 OK");
 	next();
 });
@@ -21,7 +21,7 @@ app.get('/app/roll', (req, res, next) => {
 	var rolls = 1;
 	res.type('application/json');
 	var r = roll(sides,dice,rolls);
-	request.setHeader('Content-Type', 'application/json');
+	res.setHeader('Content-Type', 'application/json');
 	res.status(200).send(r);
 	next();
 });
@@ -39,7 +39,7 @@ app.post('/app/roll', (req, res, next) =>{
         	rolls = parseInt(req.body.rolls);
 	}
 	var r = roll(sides,dice,rolls);
-	request.setHeader('Content-Type', 'application/json');
+	res.setHeader('Content-Type', 'application/json');
 	res.status(200).send(r);
 });
 
