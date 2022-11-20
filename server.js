@@ -3,13 +3,9 @@ import {roll} from './lib/roll.js';
 const app = express();
 const {SERVER_PORT: port = 5000} = process.env;
 
-app.get('*', (req, res)=>{
-	return res.status(404).send("404 NOT FOUND");
-});
 
 app.get('/app/', (req, res)=>{
 	return res.status(200).send("200 OK");
-	console.log("200 OK");
 });
 
 app.use(express.json());
@@ -22,4 +18,11 @@ app.get('/app/roll', (req, res) =>{
 	res.json({sides: sides, dice: dice, rolls: rolls, results: r});
 });
 
+// Default route
+app.get("*", (req, res) => {
+  
+  res.status(404).send("404 NOT FOUND");
+});
+
+//setup server
 app.listen(port, ()=> console.log(`listening on port ${port}!`));
