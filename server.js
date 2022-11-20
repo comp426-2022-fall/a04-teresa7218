@@ -7,19 +7,24 @@ const app = express();
 const port = argv.port || 5000;
 app.use(express.urlencoded({extended: true}));
 
+
 app.get('/app', (req, res, next)=>{
+	request.setHeader('Content-Type', 'application/json');
 	res.status(200).send("200 OK");
 	next();
 });
+
 app.get('/app/roll', (req, res, next) => {
 	var sides = 6;
 	var dice = 2;
 	var rolls = 1;
 	res.type('application/json');
 	var r = roll(sides,dice,rolls);
+	request.setHeader('Content-Type', 'application/json');
 	res.status(200).send(r);
+	next();
 });
-app.put('/app/roll', (req, res, next) =>{
+app.post('/app/roll', (req, res, next) =>{
 	var sides = 6;
 	var dice = 2 ;
 	var rolls = 1;
@@ -31,9 +36,9 @@ app.put('/app/roll', (req, res, next) =>{
     	}
     	if (req.body.rolls) {
         	rolls = parseInt(req.body.rolls);
-    	}
-	res.type('application/json');
+	}
 	var r = roll(sides,dice,rolls);
+	request.setHeader('Content-Type', 'application/json');
 	res.status(200).send(r);
 });
 
