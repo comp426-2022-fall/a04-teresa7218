@@ -7,23 +7,30 @@ const app = express();
 const {SERVER_PORT: port = 5000} = process.env;
 app.use(express.urlencoded({extended: true}));
 
-app.get('/app/', (req, res, next)=>{
+app.get('/app', (req, res, next)=>{
 	res.status(200).send("200 OK");
 	next();
 });
-
-app.get('/app/roll/', (req, res, next) =>{
+app.get('/app/roll', (req, res, next) => {
+	var sides = 6;
+	var dice = 2;
+	var rolls = 1;
+	res.type('application/json');
+	var r = roll(sides,dice,rolls);
+	res.status(200).send(r);
+});
+app.put('/app/roll', (req, res, next) =>{
 	var sides = 6;
 	var dice = 2 ;
 	var rolls = 1;
-	if (req.params.sides) {
-        	sides = parseInt(req.params.sides);
+	if (req.body.sides) {
+        	sides = parseInt(req.body.sides);
     	}
-    	if (req.params.dice) {
-        	dice = parseInt(req.params.dice);
+    	if (req.body.dice) {
+        	dice = parseInt(req.body.dice);
     	}
-    	if (req.params.rolls) {
-        	rolls = parseInt(req.params.rolls);
+    	if (req.body.rolls) {
+        	rolls = parseInt(req.body.rolls);
     	}
 	res.type('application/json');
 	var r = roll(sides,dice,rolls);
