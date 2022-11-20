@@ -4,7 +4,7 @@ const app = express();
 const {SERVER_PORT: port = 5000} = process.env;
 
 app.get('*', (req, res)=>{
-	return res.status.send("404 NOT FOUND");
+	return res.status(404).send("404 NOT FOUND");
 });
 
 app.get('/app/', (req, res)=>{
