@@ -10,10 +10,10 @@ app.get('/app/', (req, res)=>{
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.get('/app/roll', (req, res) =>{
-	var sides = 6 || req.body.sides;
-	var dice = 2 || req.body.dice;
-	var rolls = 1 || req.body.rolls
+app.get('/app/roll/', (req, res) =>{
+	var sides = req.body.sides|| 6;
+	var dice = req.body.dice || 2 ;
+	var rolls = req.body.rolls || 1;
 	var r = roll(sides,dice,rolls);
 	res.json({sides: sides, dice: dice, rolls: rolls, results: r});
 });
