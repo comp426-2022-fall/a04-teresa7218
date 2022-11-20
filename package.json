@@ -24,6 +24,7 @@
     "express": "^4.18.2",
     "minimist": "^1.2.7",
     "normalize-port": "^1.0.0",
+    "request": "^2.88.2",
     "server": "^1.0.37"
   }
 }
