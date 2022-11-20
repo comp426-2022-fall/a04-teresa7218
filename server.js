@@ -21,4 +21,4 @@ app.get('/app/roll', (req, res) =>{
 	var r = roll(sides,dice,rolls);
 	res.json({sides: sides, dice: dice, rolls: rolls, results: r});
 });
-app.listen({port}, () => console.log(`Listening on port ${port}...`));
+
