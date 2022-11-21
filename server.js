@@ -70,4 +70,4 @@ app.get("*", (req, res) => {
 });
 
 //setup server
-app.listen(port, ()=> console.log(`listening on port ${port}!`));
+app.listen(port);
