@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import express from 'express';
 import {roll} from './lib/roll.js';
 import parseArgs from 'minimist';
@@ -10,23 +12,22 @@ app.use(express.urlencoded({extended: true}));
 
 
 app.get('/app', (req, res)=>{
-	res.setHeader('Content-Type', 'application/json');
+	//res.setHeader('Content-Type', 'application/json');
 	res.status(200).send("200 OK");
 });
 
 app.get('/app/roll', (req, res, next) => {
-	var sides = 6;
-	var dice = 2;
-	var rolls = 1;
-	res.type('application/json');
-	var r = roll(sides,dice,rolls);
-	//res.setHeader('Content-Type', 'application/json');
-	res.status(200).send(r);
+	let sides = 6;
+	let dice = 2;
+	let rolls = 1;
+
+	res.setHeader('Content-Type', 'application/json');
+	res.status(200).send(roll(sides,dice,rolls));
 });
 app.post('/app/roll', (req, res, next) =>{
-	var sides = 6;
-	var dice = 2 ;
-	var rolls = 1;
+	let sides = 6;
+	let dice = 2 ;
+	let rolls = 1;
 	if (req.body.sides) {
         	sides = parseInt(req.body.sides);
     	}
@@ -36,9 +37,22 @@ app.post('/app/roll', (req, res, next) =>{
     	if (req.body.rolls) {
         	rolls = parseInt(req.body.rolls);
 	}
-	var r = roll(sides,dice,rolls);
 	res.setHeader('Content-Type', 'application/json');
-	res.status(200).send(r);
+	res.status(200).send(roll(sides,dice,rolls));
+});
+
+app.get('/app/roll/:sides', (req, res, next) => {
+    let sides = req.params.sides || 6;
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).send(roll(sides, 2, 1));
+});
+
+app.get('/app/roll/:sides/:dice', (req, res, next) => {
+    let sides = req.params.sides||6;
+    let dice = req.params.dice || 2;
+
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).send(roll(sides, dice, 1));
 });
 
 // Default route
