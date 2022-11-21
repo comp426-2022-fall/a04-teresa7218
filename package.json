@@ -2,7 +2,7 @@
   "name": "a04-teresa7218",
   "version": "1.0.0",
   "description": "standup API using node.js and express.js and nodemon",
-  "main": "sever.js",
+  "main": "server.js",
   "scripts": {
     "test": "node server.js --port=5555"
   },
