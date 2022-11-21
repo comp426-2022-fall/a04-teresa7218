@@ -25,40 +25,32 @@ app.get('/app/roll', (req, res, next) => {
 	res.status(200).send(roll(sides,dice,rolls));
 });
 app.post('/app/roll', (req, res, next) =>{
-	let sides = req.body.sides;
-	let dice = req.body.dice;
-	let rolls = req.body.rolls;
-	//if (req.body.sides) {
-        //	sides = parseInt(req.body.sides);
-    	//}
-    	//if (req.body.dice) {
-        //	dice = parseInt(req.body.dice);
-    	//}
-    	//if (req.body.rolls) {
-        //	rolls = parseInt(req.body.rolls);
-	//}
+	let sides = parseInt(req.body.sides);
+	let dice = parseInt(req.body.dice);
+	let rolls = parseInt(req.body.rolls);
+	
 	res.setHeader('Content-Type', 'application/json');
 	res.status(200).send(roll(sides,dice,rolls));
 });
 
 app.get('/app/roll/:sides', (req, res, next) => {
-    let sides = req.params.sides || 6;
+    let sides = parseInt(req.params.sides) || 6;
     res.setHeader('Content-Type', 'application/json');
     res.status(200).send(roll(sides, 2, 1));
 });
 
 app.get('/app/roll/:sides/:dice', (req, res, next) => {
-    let sides = req.params.sides||6;
-    let dice = req.params.dice || 2;
+    let sides = parseInt(req.params.sides) ||6;
+    let dice = parseInt(req.params.dice) || 2;
 
     res.setHeader('Content-Type', 'application/json');
     res.status(200).send(roll(sides, dice, 1));
 });
 
 app.get('/app/roll/:sides/:dice/:rolls', (req, res, next) => {
-    let sides = req.params.sides||6;
-    let dice = req.params.dice || 2;
-    let rolls = req.params.rolls || 1;
+    let sides = parseInt(req.params.sides)||6;
+    let dice = parseInt(req.params.dice) || 2;
+    let rolls = parseInt(req.params.rolls) || 1;
     res.setHeader('Content-Type', 'application/json');
     res.status(200).send(roll(sides, dice, rolls));
 });
